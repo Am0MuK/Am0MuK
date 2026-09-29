@@ -4,6 +4,8 @@ On-chain data engineer. I build pipelines on EVM chain data in Python and SQL, a
 
 A lot of my work so far has been about the errors that don't crash anything: an explorer API that answers HTTP 200 with an error inside, a page that stops at 1,000 rows, a missing price read as 0, a rate limit reported as missing data.
 
+Findings page with charts and the data behind them: **[am0muk.github.io](https://am0muk.github.io)**
+
 ## Projects
 
 **[onchain-tieout](https://github.com/Am0MuK/onchain-tieout)**: rebuilds a wallet's ETH and ERC-20 balances from Etherscan V2 history and checks them against JSON-RPC state at the same block, with a probable cause for every difference. On a public wallet (vitalik.eth) it produced 10,476 balance rows, 8,281 of them exact. Its first live run found bugs in its own code that the offline tests had missed: pages capped at 1,000 rows, a block too large to paginate, and rate-limit errors reported as data.
