@@ -14,6 +14,8 @@ Findings page with charts and the data behind them: **[am0muk.github.io](https:/
 
 **[lp-sim](https://github.com/Am0MuK/lp-sim)**: simulator for Uniswap V3 range strategies. It rebuilds per-tick liquidity from Mint and Burn events, and its fee accounting matched the pools' on-chain fee counters to within 0.3% on three stable pools, the largest with 62,484 swaps. 1,464 strategy runs on 8 stable pools, none passed the 15% target fixed in advance.
 
+**[healthfactor_watch_bot](https://github.com/Am0MuK/healthfactor_watch_bot)**: a read-only Telegram bot for people who borrow on Aave. It alerts when a health factor falls to levels the user sets, on Aave V3 (20 chains) and Aave V4 (4 chains), with opt-in stablecoin depeg alerts. 230 automated tests, MIT license, runs in Docker. You can try it at [@healthfactor_watch_bot](https://t.me/healthfactor_watch_bot). Review caught three defects before release: a price source that answers HTTP 200 with an empty result for an unknown token, a freshness limit that silently dropped 5 of 12 stablecoins, and an alert that was lost when sending to Telegram failed.
+
 A private multi-chain pipeline (16+ chains, 20+ protocols, 1,700+ tests) runs a balance check against the chain after every run. I used it for my own German tax return.
 
 ## How I work
@@ -22,7 +24,7 @@ I write the specification and the test plan. AI coding agents write much of the 
 
 ## Stack
 
-Python · SQL (PostgreSQL, SQLite) · Dune · Uniswap V3 math · Etherscan and Blockscout APIs · archive RPC · Docker · Grafana · Linux
+Python · SQL (PostgreSQL, SQLite) · Dune · Uniswap V3 math · Etherscan and Blockscout APIs · archive RPC · Telegram Bot API · Docker · Grafana · Linux
 
 ## Writing
 
